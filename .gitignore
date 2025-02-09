@@ -1,0 +1,11 @@
+node_modules/
+*.log
+docker-compose.override.yml
+.docker/
+/data/
+.vscode/
+.env
+.env.local
+*.log
+*.pid
+*.seed

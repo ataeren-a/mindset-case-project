@@ -1,0 +1,92 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: database
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1212
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./database_init/user_service.sql:/docker-entrypoint-initdb.d/user_service.sql
+      - pgdata:/var/lib/postgresql/data
+
+  gateway:
+    build: 
+      context: .
+      dockerfile: gateway/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - user-service
+      - customer-service
+      - sales-service
+    environment:
+      - PORT=3000
+      - JWT_SECRET_KEY=176a20346f48cd05791e8b85335654ad16aaf0ddc6c32c29383164fdbee01e8a03be4739dd6bf2992d42e86ec10b71497bc62d213901a33512bc7b019320102f
+      - USER_SERVICE_URL=http://user-service:3001
+      - CUSTOMER_SERVICE_URL=http://customer-service:3002
+      - SALES_SERVICE_URL=http://sales-service:3003
+
+  user-service:
+    build: 
+      context: .
+      dockerfile: user-service/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      - JWT_SECRET_KEY=176a20346f48cd05791e8b85335654ad16aaf0ddc6c32c29383164fdbee01e8a03be4739dd6bf2992d42e86ec10b71497bc62d213901a33512bc7b019320102f
+      - PORT=3001
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=user_service
+      - DB_USER=postgres
+      - DB_PASSWORD=1212
+
+  customer-service:
+    build: 
+      context: .
+      dockerfile: customer-service/Dockerfile
+    ports:
+      - "3002:3002"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      - JWT_SECRET_KEY=176a20346f48cd05791e8b85335654ad16aaf0ddc6c32c29383164fdbee01e8a03be4739dd6bf2992d42e86ec10b71497bc62d213901a33512bc7b019320102f
+      - PORT=3002
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=customer_service
+      - DB_USER=postgres
+      - DB_PASSWORD=1212
+
+  sales-service:
+    build: 
+      context: .
+      dockerfile: sales-service/Dockerfile
+    ports:
+      - "3003:3003"
+    depends_on:
+      - postgres
+    environment:
+      - JWT_SECRET_KEY=176a20346f48cd05791e8b85335654ad16aaf0ddc6c32c29383164fdbee01e8a03be4739dd6bf2992d42e86ec10b71497bc62d213901a33512bc7b019320102f
+      - PORT=3003
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_DATABASE=sales_service
+      - DB_USER=postgres
+      - DB_PASSWORD=1212
+volumes:
+  pgdata:
