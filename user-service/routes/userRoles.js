@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const controller = require('../controllers/userRoles');
-const { authenticateAdmin, authenticate } = require('../database/middlewares/jwtMiddle');
+const { authenticateAdmin, authenticate } = require('../middlewares/jwtMiddle');
 
 router.post('/create', authenticateAdmin, controller.createRole);
 router.get('/read/:id', authenticateAdmin, controller.readRole);

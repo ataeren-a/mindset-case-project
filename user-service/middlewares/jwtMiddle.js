@@ -1,5 +1,5 @@
 const { verify } = require('jsonwebtoken');
-const { handleInternalError, handleError} = require('../../helpers/error');
+const { handleInternalError, handleError} = require('../helpers/error');
 
 function authenticate(req, res, next) {
     if (!(req.headers && req.headers.authorization)) {
@@ -19,7 +19,7 @@ function authenticate(req, res, next) {
         }
 
         try {
-            const readUser = require('../users/methods').readUser;
+            const readUser = require('../database/users/methods').readUser;
 
             const user = await readUser({id: decoded.data.id});
 
@@ -55,7 +55,7 @@ function authenticateAdmin(req, res, next) {
         }
 
         try {
-            const readUser = require('../users/methods').readUser;
+            const readUser = require('../database/users/methods').readUser;
 
             const user = await readUser({id: decoded.data.id});
 

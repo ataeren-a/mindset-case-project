@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const controller = require('../controllers/users');
-const { authenticate, authenticateAdmin } = require('../database/middlewares/jwtMiddle');
+const { authenticate, authenticateAdmin } = require('../middlewares/jwtMiddle');
 
 router.post('/create', authenticateAdmin, controller.createUser);
 router.post('/login', controller.login);
