@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const controller = require('../controllers/users');
+const { authenticate, authenticateAdmin } = require('../database/middlewares/jwtMiddle');
 
-router.post('/create', controller.createUser);
+router.post('/create', authenticateAdmin, controller.createUser);
 router.post('/login', controller.login);
-router.get('/read/:id', controller.readUser);
-router.post('/read-all-users', controller.readAllUsers);
-router.patch('/update/:id', controller.updateUser);
-router.delete('/delete/:id', controller.deleteUser);
+router.get('/read/:id', authenticate, controller.readUser);
+router.post('/read-all-users', authenticateAdmin, controller.readAllUsers);
+router.patch('/update/:id', authenticateAdmin, controller.updateUser);
+router.delete('/delete/:id', authenticateAdmin, controller.deleteUser);
 
 module.exports = router;
