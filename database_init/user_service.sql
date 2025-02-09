@@ -4,8 +4,6 @@ CREATE DATABASE user_service;
 
 CREATE SCHEMA service;
 
-CREATE SEQUENCE service;
-
 CREATE SEQUENCE service.role_id_seq
     START WITH 1
     INCREMENT BY 1
