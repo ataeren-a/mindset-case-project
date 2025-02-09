@@ -71,7 +71,7 @@ const queries = {
             set.push(keys[i] + ' = $' + (i + 1));
         }
 
-        query.push(set + ' WHERE id = ' + id + ' RETURNING id;');
+        query.push(set + `, updated_on = '${new Date().toLocaleString()}' ` + ' WHERE id = ' + id + ' RETURNING id;');
     
         return query.join(' ');
     },
