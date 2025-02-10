@@ -16,10 +16,10 @@ Yukarıda belirttiğim hususlara gösterdiğiniz anlayış için teşekkür eder
 
 **PROJEYİ ÇALIŞTIRMAK**
 
-- git clone https://github.com/ataerena/mindset-case-project.git
-- cd mindset-case-project
-- Servislere ait her bir Docker Container'ının terminal dökümlerini görmek için -> docker-compose-up --build
-- Servislere ait Docker Container'larını arka planda çalıştırmak için -> docker-compose-up --build -d
+- ```git clone https://github.com/ataerena/mindset-case-project.git```
+- ```cd mindset-case-project```
+- Servislere ait her bir Docker Container'ının terminal dökümlerini görmek için -> ```docker-compose-up --build```
+- Servislere ait Docker Container'larını arka planda çalıştırmak için -> ```docker-compose-up --build -d```
 
 **POSTMAN DOKÜMANTASYONU**
 
