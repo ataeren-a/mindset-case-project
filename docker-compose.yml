@@ -11,6 +11,7 @@ services:
     volumes:
       - ./database_init/user_service.sql:/docker-entrypoint-initdb.d/user_service.sql
       - ./database_init/customer_service.sql:/docker-entrypoint-initdb.d/customer_service.sql
+      - ./database_init/sales_service.sql:/docker-entrypoint-initdb.d/sales_service.sql
       - pgdata:/var/lib/postgresql/data
 
   gateway:
