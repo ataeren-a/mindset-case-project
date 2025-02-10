@@ -4,7 +4,7 @@ Merhaba Mindset. Bu repository, durum çalışması için oluşturulmuştur.
 
 Dokümantasyona başlamadan önce projenin geliştirme süreciyle ilgili açıklamak istediğim birkaç konu var:
 
-- Projeyi, tam zamanlı olarak çalıştığım işimde yoğun olduğum bir dönemde geliştirmek durumunda kaldım. Durum çalışması yapmadan önce kısa bir görüşme yapmak suretiyle vakti iki taraf için de daha uygun bir vakitte yapmış olmayı dilerdim. 
+- Projeyi, tam zamanlı olarak çalıştığım işimde yoğun olduğum bir dönemde geliştirmek durumunda kaldım. Bu da maalesef, normal şartlarda göstereceğim özenin altında kalmama neden oldu.
 
 - Yukarıda belirttiğim durumdan dolayı, birim testler ve swagger dokümantasyonu yazmadım. Ancak hem test hem de dokümantasyon görevi görecek olan, geliştirme sürecinde benim de üzerinden testlerimi yaptığım ve API gateway'deki çağrıları yeniden yazarken dokümantasyon niyetine kullandığım bir Postman koleksiyonu paylaşıyorum.
 
