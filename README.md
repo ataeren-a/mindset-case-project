@@ -2,7 +2,7 @@
 
 Merhaba Mindset. Bu repository, durum çalışması için oluşturulmuştur.
 
-Dokümantasyona başlamadan önce belirterek projenin geliştirme süreciyle ilgili açıklamak birkaç konu var:
+Dokümantasyona başlamadan önce projenin geliştirme süreciyle ilgili açıklamak istediğim birkaç konu var:
 
 - Projeyi, tam zamanlı olarak çalıştığım işimde yoğun olduğum bir dönemde geliştirmek durumunda kaldım. Durum çalışması yapmadan önce kısa bir görüşme yapmak suretiyle vakti iki taraf için de daha uygun bir vakitte yapmış olmayı dilerdim. 
 
