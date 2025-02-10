@@ -42,3 +42,15 @@ CREATE TABLE service.users(
         REFERENCES service.user_roles (id)
         ON DELETE SET NULL
 );
+
+INSERT INTO service.users (
+    role_id, 
+    username, 
+    email, 
+    pwd
+) VALUES (
+    1,
+    'admin',
+    'admin@mail.com',
+    '$2b$12$duFt/KJjbPS7Mui9UD2CfuIA9eFFdiyTy8cHmRA.bnF5GNUFL6Aoy' /* corresponds to 'admin123' */
+)
