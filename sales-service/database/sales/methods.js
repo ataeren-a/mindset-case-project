@@ -7,6 +7,15 @@ const createSale = async (body) => {
         const query = await client.query(queries.CREATE, [body.customer_id]);
 
         if (query.rowCount > 0) {
+            // we should also create a status that indicates the sale is "new"
+            const createStatus = require('../saleStatus/queries').CREATE;
+            const createStatusBody = [
+                query.rows[0].id,
+                'new',
+                null,
+            ];
+            await client.query(createStatus, createStatusBody);
+
             return query.rows[0];
         } else {
             return false;
