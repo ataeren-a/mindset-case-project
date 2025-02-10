@@ -1,9 +1,6 @@
 const express = require("express");
 const cors = require('cors');
 
-const swaggerJsdoc = require("swagger-jsdoc");
-const swaggerUi = require("swagger-ui-express");
-
 const routes = require('./router');
 
 const server = express();
@@ -13,24 +10,9 @@ const corsConfig = {
     credentials: true,
 };
 
-const swaggerOptions = {
-    definition: {
-        openapi: "3.0.0",
-        info: {
-            title: "Gateway API",
-            version: "1.0.0",
-            description: "API documentation for the gateway",
-        },
-    },
-    apis: ["./routes/*.js"],
-};
-
 server.use(cors(corsConfig));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-
-const swaggerDocs = swaggerJsdoc(swaggerOptions);
-server.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 server.use('/gateway', routes);
 
