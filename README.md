@@ -28,7 +28,7 @@ Bunun gibi bir çok soruyu veritabanına sorabiliriz: Oluşturulan bir müşteri
 
 **PROJEYİ ÇALIŞTIRMAK**
 
-- ```git clone https://github.com/ataerena/mindset-case-project.git```
+- ```[git clone https://github.com/ataerena/mindset-case-project.git](https://github.com/ataeren-a/mindset-case-project.git)```
 - ```cd mindset-case-project```
 - Servislere ait her bir Docker Container'ının terminal dökümlerini görmek için -> ```docker-compose-up --build```
 - Servislere ait Docker Container'larını arka planda çalıştırmak için -> ```docker-compose-up --build -d```
